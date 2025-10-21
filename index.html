@@ -1,82 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TryRecite – Speak Better. Faster.</title>
-  <meta name="description" content="TryRecite helps you practice and perfect your speech using AI feedback and real-time analysis.">
-  
-  <!-- ✅ Working Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TryRecite – Finally recite with a beautiful voice</title>
+    <meta name="description" content="TryRecite helps you recite beautifully with AI-powered speech feedback.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
 
-  <!-- Optional: custom colors or fonts -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            indigo: {
-              600: '#4f46e5',
-              700: '#4338ca',
-            },
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-
-  <!-- Optional: Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-  <body class="bg-gray-50 text-gray-900">
+  <body class="bg-black text-white flex flex-col items-center justify-center min-h-screen text-center px-6">
     <!-- Header -->
-    <header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
-      <h1 class="text-2xl font-bold text-indigo-600">TryRecite</h1>
-      <a href="#join" class="bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 transition">Get Early Access</a>
+    <header class="absolute top-6 left-1/2 -translate-x-1/2">
+      <h1 class="text-2xl font-bold tracking-wide">TryRecite</h1>
     </header>
 
     <!-- Hero Section -->
-    <section class="text-center py-24 px-6">
-      <h2 class="text-4xl md:text-6xl font-extrabold mb-6">Speak with Confidence.</h2>
-      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-        TryRecite helps you improve your speaking skills with AI-powered feedback, tone analysis, and performance tracking.
-      </p>
-      <a href="#join" class="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg hover:bg-indigo-700 transition">Join the Beta</a>
-    </section>
+    <main class="flex flex-col items-center justify-center space-y-8">
+      <h2 class="text-4xl md:text-6xl font-extrabold leading-tight max-w-3xl">
+        Finally recite<br class="hidden md:block" />with a beautiful voice.
+      </h2>
 
-    <!-- Features -->
-    <section class="bg-white py-20 px-6">
-      <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-center">
-        <div>
-          <h3 class="text-xl font-semibold mb-3">AI Speech Feedback</h3>
-          <p class="text-gray-600">Instantly see how your tone, clarity, and pacing can improve after every practice.</p>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-3">Track Progress</h3>
-          <p class="text-gray-600">Visualize your growth and measure speaking confidence over time.</p>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-3">Learn Anywhere</h3>
-          <p class="text-gray-600">Practice your pitch, presentation, or speech from any device, anytime.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Signup Section -->
-    <section id="join" class="bg-indigo-600 text-white py-24 px-6 text-center">
-      <h3 class="text-3xl font-bold mb-6">Be among the first to TryRecite</h3>
-      <form action="https://formspree.io/f/yourformid" method="POST" class="max-w-md mx-auto flex flex-col md:flex-row gap-3">
-        <input type="email" name="email" required placeholder="Your email address" class="flex-1 px-4 py-3 rounded-full text-gray-900 focus:outline-none" />
-        <button type="submit" class="bg-black px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition">Notify Me</button>
-      </form>
-    </section>
+      <a href="#" class="bg-white text-black px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-200 transition">
+        Download the App
+      </a>
+    </main>
 
     <!-- Footer -->
-    <footer class="text-center text-gray-500 py-10">
-      <p>© <span id="year"></span> TryRecite. All rights reserved.</p>
+    <footer class="absolute bottom-6 text-gray-500 text-sm">
+      © <span id="year"></span> TryRecite. All rights reserved.
     </footer>
 
     <script>
