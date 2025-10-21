@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TryRecite – Speak Better. Faster.</title>
-    <meta name="description" content="TryRecite helps you practice and perfect your speech using AI feedback and real-time analysis.">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TryRecite – Speak Better. Faster.</title>
+  <meta name="description" content="TryRecite helps you practice and perfect your speech using AI feedback and real-time analysis.">
+  
+  <!-- ✅ Working Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: custom colors or fonts -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Optional: Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
   <body class="bg-gray-50 text-gray-900">
     <!-- Header -->
     <header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
