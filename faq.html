@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ – TryRecite</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    header a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-top: 0.5rem;
+    }
+    .faq {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid #333;
+      padding: 1.5rem 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    p {
+      margin: 0;
+      color: #ccc;
+    }
+    .contact {
+      margin-top: 3rem;
+      text-align: center;
+      border-top: 1px solid #333;
+      padding-top: 2rem;
+    }
+    .contact a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    footer a {
+      color: #999;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">TryRecite</a>
+    <h1>Frequently Asked Questions</h1>
+  </header>
+
+  <main class="faq">
+    <div class="faq-item">
+      <h2>1. What does this app do?</h2>
+      <p>Recite teaches you how to recite the Quran with a beautiful voice. It gives you examples of reciters reciting the Quran and shows you exactly what pitches they are using. Then it enables you to attempt to copy their tune. In real time, it detects your pitch and shows you if your pitch matches the reciter’s pitch.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>2. Why do the notes turn red and green?</h2>
+      <p>If the note turns green, it means you matched the reciter's pitch. If it turns red, it means you didn’t match the reciter's pitch.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>3. What is the difference between Learn and Play mode?</h2>
+      <p>Learn mode allows you to first listen to the recitation yourself, then try to copy it after. Once you have learned the tune, you can do Play mode to directly recite the tune without listening to the reciter first.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>4. What does the pitch level setting do?</h2>
+      <p>The pitch level setting enables you to recite an octave above or below the octave of the reciter. Many times the exact pitch of the reciter is too high or low for the user. Thankfully, what’s important isn’t the exact pitch but rather the tune. So if you recite the same tune but an octave above or below the reciter's octave, it will still sound correct. The app automatically determines the best octave for you based on your range. However, if you find that for a particular tutorial it's easier to recite at a different octave, then you can manually change that using the pitch level setting.</p>
+      <p><em>Note: An octave is a big difference in pitch, not just a small increase. Insha Allah, in future versions we will enable users to slightly increase or decrease the target pitch so that they don't have to jump a whole octave.</em></p>
+    </div>
+
+    <div class="faq-item">
+      <h2>5. Why are headphones required?</h2>
+      <p>Currently, there is an issue when using speakers. The echo from the speakers gets picked up by the microphone and the app shows the pitch trail for that echo because it thinks that is the user's voice. We are working on a way to filter out the speaker echo from the user's voice, but that is still in progress.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>6. Is there a way to upload a recitation and automatically generate the notes?</h2>
+      <p>In progress. It’s pretty hard 🙂</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>7. Why is the bouncing ball out of sync with the audio?</h2>
+      <p>This is likely due to Bluetooth delay. When using Bluetooth headphones, there is actually a significant delay for the signal to travel through the air and reach your ears. This means we need to delay the video until the sound reaches your ears. You can adjust this delay in the Bluetooth Delay settings by moving the slider until the ball jumps at the same time that you hear the bell sound.</p>
+    </div>
+
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <p>If you have any questions, feedback, or suggestions, feel free to reach out to us at:</p>
+      <p><a href="mailto:info@tryrecite.app">info@tryrecite.app</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 TryRecite. All rights reserved.</p>
+    <p><a href="privacy.html">Privacy Policy</a> • <a href="faq.html">FAQ</a></p>
+  </footer>
+</body>
+</html>
