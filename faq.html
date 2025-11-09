@@ -79,15 +79,50 @@
     footer a:hover {
       text-decoration: underline;
     }
+    .video-container {
+      position: relative;
+      width: 90%;                /* takes up most of the screen */
+      max-width: 900px;          /* cap width on large screens */
+      margin: 2rem auto 3rem;    /* centers it horizontally */
+      padding-bottom: 50.625%;   /* slightly taller 16:9 ratio (16/9 = 56.25%) */
+      background-color: #111;    /* subtle background fill */
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid #333;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
   </style>
 </head>
 <body>
   <header>
     <a href="index.html">Recite</a>
-    <h1>Frequently Asked Questions</h1>
   </header>
 
   <main class="faq">
+    <h1>Tutorial</h1>
+
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/rnfKeB6gm7Y?si=XKEs8BfHfLKCRHqO"
+        title="Recite App Demo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+
+    <h1>Frequently Asked Questions</h1>
     <div class="faq-item">
       <h2>1. What does this app do?</h2>
       <p>Recite teaches you how to recite the Quran with a beautiful voice. It gives you examples of reciters reciting the Quran and shows you exactly what pitches they are using. Then it enables you to attempt to copy their tune. In real time, it detects your pitch and shows you if your pitch matches the reciter’s pitch.</p>
