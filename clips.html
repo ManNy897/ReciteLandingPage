@@ -264,6 +264,19 @@
       renderClips(clips.sort((a, b) => b.votes - a.votes));
     }
 
+    function hasVoted(id) {
+      const votes = JSON.parse(localStorage.getItem("voted") || "[]");
+      return votes.includes(id);
+    }
+
+    function recordVote(id) {
+      const votes = JSON.parse(localStorage.getItem("voted") || "[]");
+      if (!votes.includes(id)) {
+        votes.push(id);
+        localStorage.setItem("voted", JSON.stringify(votes));
+      }
+    }
+
     function renderClips(clips) {
       list.innerHTML = '';
       for (const clip of clips) {
@@ -311,8 +324,13 @@
     list.addEventListener('click', async (e) => {
       if (e.target.classList.contains('vote-btn')) {
         const id = e.target.getAttribute('data-id');
+      if (hasVoted(id)) {
+        alert("You’ve already voted for this clip!");
+        return;
+      }
         const ref = doc(db, "clips", id);
         await updateDoc(ref, { votes: increment(1) });
+        recordVote(id);
         loadClips();
       }
     });
