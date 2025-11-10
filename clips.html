@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <title>Clips – Recite</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      margin: 0.5rem 0;
+    }
+
+    p.intro {
+      max-width: 700px;
+      margin: 0.5rem auto 1rem;
+      text-align: center;
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto 1rem;
+      background: #111;
+      padding: 1rem;
+      border-radius: 10px;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 6px 8px;
+      border: none;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      background: #222;
+      color: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background: #1e90ff;
+      color: white;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      justify-self: start;
+    }
+
+    button:hover {
+      background: #0d6efd;
+    }
+
+    .clip {
+      max-width: 600px;
+      margin: 1rem auto;
+      background: #111;
+      padding: 0.8rem;
+      border-radius: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+    }
+
+    .votes {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .vote-btn {
+      background: #222;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 6px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .vote-btn:hover {
+      background: #333;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #777;
+      border-top: 1px solid #333;
+      padding-top: 1.2rem;
+    }
+
+    footer a {
+      color: #999;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">Recite</a>
+    <h1>Recitation Requests</h1>
+    <p class="intro">
+      Submit short Quran recitation clips and vote for your favorites.
+      Every week we will add the most upvoted clip to the app.
+    </p>
+  </header>
+
+  <form id="clipForm">
+    <label>YouTube Video URL</label>
+    <input type="text" id="videoUrl" placeholder="https://www.youtube.com/watch?v=..." required />
+
+    <label>Start Time (HH:MM:SS)</label>
+    <input type="text" id="startTime" value="00:00:00" />
+
+    <label>End Time (HH:MM:SS)</label>
+    <input type="text" id="endTime" value="00:00:00" />
+
+    <label>Clip Name</label>
+    <input type="text" id="clipName" placeholder="Example: Surah Al-Mulk Section" />
+
+    <label>Description</label>
+    <textarea id="clipDescription" rows="2" placeholder="Short description..."></textarea>
+
+    <button type="submit">Add Clip</button>
+  </form>
+
+  <div id="clipList"></div>
+
+  <footer>
+    <p>© 2025 Recite. All rights reserved.</p>
+    <p><a href="privacy.html">Privacy Policy</a> • <a href="faq.html">FAQ</a> • <a href="delete_account.html">Delete Account</a></p>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, increment } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAIPO13V65I7CPSjHslT2txOeUtgIiWrHI",
+      authDomain: "recitelandingpage.firebaseapp.com",
+      projectId: "recitelandingpage",
+      storageBucket: "recitelandingpage.firebasestorage.app",
+      messagingSenderId: "669574060167",
+      appId: "1:669574060167:web:d64bfda5495b0002f3c022",
+      measurementId: "G-R0TL4VKK1Y"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const form = document.getElementById('clipForm');
+    const list = document.getElementById('clipList');
+    const startInput = document.getElementById('startTime');
+    const endInput = document.getElementById('endTime');
+
+    // Timestamp formatting logic (HH:MM:SS)
+    function formatTimestamp(input) {
+      let digits = input.replace(/\D/g, '');
+      digits = digits.slice(0, 6);
+      digits = digits.padStart(6, '0');
+      const hours = digits.slice(0, 2);
+      const minutes = digits.slice(2, 4);
+      const seconds = digits.slice(4, 6);
+      return `${hours}:${minutes}:${seconds}`;
+    }
+
+    function setupTimestampField(field) {
+      field.addEventListener('input', function (e) {
+        const cursorPos = e.target.selectionStart;
+        const oldValue = e.target.value;
+        const newValue = formatTimestamp(oldValue);
+        e.target.value = newValue;
+
+        const digitsBefore = oldValue.slice(0, cursorPos).replace(/\D/g, '').length;
+        let newCursorPos = 0;
+        let digitsCount = 0;
+
+        for (let i = 0; i < newValue.length; i++) {
+          if (/\d/.test(newValue[i])) {
+            digitsCount++;
+            if (digitsCount === digitsBefore) {
+              newCursorPos = i + 1;
+              break;
+            }
+          }
+        }
+        e.target.setSelectionRange(newCursorPos, newCursorPos);
+      });
+    }
+
+    setupTimestampField(startInput);
+    setupTimestampField(endInput);
+
+    function timeToSeconds(t) {
+      if (!t) return 0;
+      const parts = t.split(':').map(Number);
+      return (parts[0] || 0) * 3600 + (parts[1] || 0) * 60 + (parts[2] || 0);
+    }
+
+    function extractVideoId(url) {
+      try {
+        const u = new URL(url);
+        if (u.hostname.includes('youtu.be')) return u.pathname.slice(1);
+        if (u.hostname.includes('youtube.com')) return u.searchParams.get('v');
+      } catch {}
+      return null;
+    }
+
+    async function loadClips() {
+      const snap = await getDocs(collection(db, "clips"));
+      const clips = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      renderClips(clips.sort((a, b) => b.votes - a.votes));
+    }
+
+    function renderClips(clips) {
+      list.innerHTML = '';
+      for (const clip of clips) {
+        const div = document.createElement('div');
+        div.className = 'clip';
+        div.innerHTML = `
+          <h3>${clip.name || "Untitled Clip"}</h3>
+          <p>${clip.description || ""}</p>
+          <iframe src="https://www.youtube.com/embed/${clip.videoId}?start=${clip.start}&end=${clip.end}" allowfullscreen></iframe>
+          <div class="votes">
+            <button class="vote-btn" data-id="${clip.id}">⬆️ Upvote</button>
+            <span>${clip.votes || 0} votes</span>
+          </div>
+        `;
+        list.appendChild(div);
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const videoId = extractVideoId(document.getElementById('videoUrl').value);
+      if (!videoId) return alert("Invalid YouTube URL.");
+
+      const start = timeToSeconds(startInput.value);
+      const end = timeToSeconds(endInput.value);
+      if (end <= start) return alert("End time must be after start time.");
+      if (end - start > 180) return alert("Clip must be under 3 minutes.");
+
+      await addDoc(collection(db, "clips"), {
+        videoId,
+        start,
+        end,
+        name: document.getElementById('clipName').value,
+        description: document.getElementById('clipDescription').value,
+        votes: 0,
+        createdAt: new Date()
+      });
+
+      form.reset();
+      startInput.value = "00:00:00";
+      endInput.value = "00:00:00";
+      loadClips();
+    });
+
+    list.addEventListener('click', async (e) => {
+      if (e.target.classList.contains('vote-btn')) {
+        const id = e.target.getAttribute('data-id');
+        const ref = doc(db, "clips", id);
+        await updateDoc(ref, { votes: increment(1) });
+        loadClips();
+      }
+    });
+
+    loadClips();
+  </script>
+</body>
+</html>
