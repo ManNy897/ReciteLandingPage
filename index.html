@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Recite – Finally recite with a beautiful voice</title>
     <meta name="description" content="Recite helps you recite beautifully with AI-powered speech feedback.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,22 +16,25 @@
     <style>
       body {
         font-family: 'Inter', sans-serif;
-        overflow: hidden; /* Prevent scrolling */
+        /* Ensures the background is black even if content overscrolls slightly on some browsers */
+        background-color: black; 
       }
 
       header {
         animation: fadeInHeader 0.8s ease-out 0.2s backwards;
       }
       
+      /* Updated clamp for smoother scaling on short screens */
       main h2 {
         animation: fadeInUp 0.8s ease-out 0.8s backwards;
-        font-size: clamp(1.8rem, 4vw + 1rem, 4rem);
-        line-height: 1.2;
+        font-size: clamp(1.5rem, 4vh + 1rem, 3.5rem); 
+        line-height: 1.1;
       }
 
+      /* Buttons scale based on viewport height (vh) as well as width */
       main a {
-        font-size: clamp(1rem, 1.5vw + 0.5rem, 1.3rem);
-        padding: clamp(0.6rem, 1vw + 0.3rem, 0.9rem) clamp(1.2rem, 2vw + 0.5rem, 2rem);
+        font-size: clamp(0.85rem, 2vh, 1.1rem);
+        padding: clamp(0.5rem, 1.5vh, 0.8rem) clamp(1rem, 2vw + 0.5rem, 2rem);
         animation: fadeInUp 0.8s ease-out backwards;
       }
 
@@ -39,10 +42,9 @@
         animation: fadeInUp 0.8s ease-out 2s backwards;
       }
 
-      /* Animations */
       @keyframes fadeInHeader {
-        from { opacity: 0; transform: translate(-50%, 20px); }
-        to { opacity: 1; transform: translate(-50%, 0); }
+        from { opacity: 0; transform: translate(0, 20px); } /* Removed X translate */
+        to { opacity: 1; transform: translate(0, 0); }
       }
 
       @keyframes fadeInUp {
@@ -52,41 +54,48 @@
     </style>
   </head>
 
-  <body class="bg-black text-white flex flex-col items-center justify-center min-h-screen text-center px-6">
-    <!-- Header -->
-    <header class="absolute top-6 left-1/2 -translate-x-1/2">
+  <body class="bg-black text-white flex flex-col h-screen w-screen overflow-hidden px-6">
+    
+    <header class="flex-none w-full flex justify-center py-4 z-50">
       <h1 class="text-2xl font-bold tracking-wide">Recite</h1>
     </header>
 
-    <!-- Logo -->
-    <div class="mb-8 logo">
-      <img src="favicon/favicon.svg" alt="Recite Logo" class="w-20 h-20 md:w-28 md:h-28">
-    </div>
+    
+    <main class="flex-1 w-full flex flex-col items-center justify-evenly min-h-0 py-2">
+      
+      <div class="flex flex-col items-center space-y-4 md:space-y-6">
+        <div class="logo">
+           <img src="favicon/favicon.svg" alt="Recite Logo" class="w-auto h-16 md:h-24 max-h-[15vh] mx-auto">
+        </div>
 
-    <!-- Hero Section -->
-    <main class="flex flex-col items-center justify-center space-y-6">
-      <h2 class="font-extrabold leading-tight max-w-3xl">
-        Finally recite<br class="hidden md:block" /> with a beautiful voice.
-      </h2>
+        <h2 class="font-extrabold text-center max-w-3xl">
+          Finally recite<br class="hidden md:block" /> with a beautiful voice.
+        </h2>
+      </div>
 
-      <a href="https://apps.apple.com/us/app/recite-beautify-your-voice/id6683306349" class="bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition">
-        Download the App (iOS)
-      </a>
-      <a href="clips.html" class="bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition">
-        Request a Recitation
-      </a>
-      <a href="feature_requests.html" class="bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition">
-        Feature Request
-      </a>
-      <a href="faq.html" class="bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition">
-        Help
-      </a>
+      <div class="flex flex-col items-center w-full space-y-3 md:space-y-4 xl:space-y-5">
+        <a href="https://apps.apple.com/us/app/recite-beautify-your-voice/id6683306349" class="bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition whitespace-nowrap">
+          Download the App (iOS)
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.theartofreciting.recite&hl=en" class="bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition whitespace-nowrap">
+          Download the App (Android)
+        </a>
+        <a href="clips.html" class="bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition whitespace-nowrap">
+          Request a Recitation
+        </a>
+        <a href="feature_requests.html" class="bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition whitespace-nowrap">
+          Feature Request
+        </a>
+        <a href="faq.html" class="bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition whitespace-nowrap">
+          Help
+        </a>
+      </div>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="absolute bottom-6 text-gray-500 text-sm text-center">
+    <footer class="flex-none w-full text-gray-500 text-sm text-center py-4">
       <p>© 2025 Recite. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy Policy</a> • <a href="faq.html">FAQ</a> • <a href="delete_account.html">Delete Account</a></p>
+      <p class="mt-1"><a href="privacy.html" class="hover:text-gray-300">Privacy Policy</a> • <a href="faq.html" class="hover:text-gray-300">FAQ</a> • <a href="delete_account.html" class="hover:text-gray-300">Delete Account</a></p>
     </footer>
 
     <script>
