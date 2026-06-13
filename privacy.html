@@ -3,78 +3,166 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy – TryRecite</title>
-    <meta name="description" content="Privacy Policy for TryRecite.">
+    <title>Privacy Policy – Recite</title>
+    <meta name="description" content="Privacy Policy for Recite.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
       body { font-family: 'Inter', sans-serif; }
       a { color: #3b82f6; }
+      a:hover { text-decoration: underline; }
     </style>
   </head>
 
   <body class="bg-white text-gray-800 min-h-screen flex flex-col">
-    <main class="max-w-3xl mx-auto py-16 px-6 flex-grow">
-      <h1 class="text-3xl font-bold mb-6">Privacy Policy</h1>
-
-      <p class="mb-4"><strong>Last updated:</strong> October 21, 2025</p>
+    <main class="max-w-3xl mx-auto py-16 px-6 flex-grow leading-relaxed">
+      <h1 class="text-4xl font-bold mb-4">Privacy Policy</h1>
+      <p class="text-gray-500 mb-8"><strong>Last updated:</strong> June 13, 2026</p>
 
       <p class="mb-6">
-        TryRecite (“we,” “our,” or “us”) respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use the TryRecite mobile application (“App”) and our website at <a href="https://tryrecite.app">tryrecite.app</a>.
+        This Privacy Policy describes how Recite (“we”, “us”, or “our”) collects, uses, and discloses your personal information when you use the Recite mobile application (the “App”) and our website at <a href="https://tryrecite.app">tryrecite.app</a>. We are committed to protecting your privacy and ensuring compliance with the General Data Protection Regulation (GDPR) and mobile platform privacy mandates.
       </p>
 
-      <h2 class="text-2xl font-semibold mt-10 mb-3">1. Information We Collect</h2>
-      <p class="mb-4">We may collect the following types of information:</p>
-      <ul class="list-disc list-inside mb-6">
-        <li><strong>Personal Information:</strong> such as your name, email address, or account details when you sign up or contact us.</li>
-        <li><strong>Usage Data:</strong> information about how you use the App, including interactions, preferences, and technical data like device type and operating system.</li>
-        <li><strong>Audio Data:</strong> if you use voice features, we may temporarily process your voice recordings for analysis and feedback purposes.</li>
+      <p class="mb-8">
+        By downloading, accessing, or using the App, you accept this Privacy Policy and consent to our collection, storage, use, and disclosure of your Personal Information as described below. For any questions, or to exercise your data rights, you can contact us at <a href="mailto:info@tryrecite.app">info@tryrecite.app</a>.
+      </p>
+
+      <hr class="border-gray-200 my-8" />
+
+      <!-- Section I -->
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-gray-900">I. Information We Collect</h2>
+      <p class="mb-4">
+        We collect two categories of information: <strong>Personal Information</strong> (which can identify you) and <strong>Non-Personal Information</strong> (which is anonymous).
+      </p>
+      
+      <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-900">1. Personal Information & Core Permissions</h3>
+      <ul class="list-disc list-outside ml-6 mb-6 space-y-2">
+        <li><strong>Voice Recordings & Audio Data:</strong> The App requires access to your device’s microphone to capture your voice. This audio data is used to analyze your vocal performance and match your pitch in real-time.</li>
+        <li><strong>Account Information:</strong> If you choose to create an account, we collect your email address, username, and authentication credentials.</li>
+        <li><strong>Device and Technical Identifiers:</strong> We automatically collect your Internet Protocol (IP) address, unique device identifiers (Device ID), operating system, and hardware model.</li>
       </ul>
 
-      <h2 class="text-2xl font-semibold mt-10 mb-3">2. How We Use Your Information</h2>
-      <p class="mb-6">We use your information to:</p>
-      <ul class="list-disc list-inside mb-6">
-        <li>Provide, improve, and personalize the App’s experience.</li>
-        <li>Analyze user performance and feedback through AI-based tools.</li>
-        <li>Respond to support requests or user inquiries.</li>
-        <li>Comply with legal obligations.</li>
+      <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-900">2. Non-Personal & Usage Information</h3>
+      <p class="mb-6">
+        We collect anonymous usage data to understand how users interact with the App. This includes screen views, features used, performance metrics, session durations, and error/crash reports.
+      </p>
+
+      <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-900">3. Children’s Privacy</h3>
+      <p class="mb-6">
+        The App is not directed to anyone under the age of 13. We do not knowingly collect or solicit personal information from children under 13. If we learn that we have inadvertently gathered personal information from a child under 13 without verifiable parental consent, we will delete that information from our servers as swiftly as possible.
+      </p>
+
+      <!-- Section II -->
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-gray-900">II. How We Use and Share Information</h2>
+      
+      <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-900">1. Legal Basis for Processing (GDPR Compliance)</h3>
+      <p class="mb-4">We process your personal data under the following legal frameworks:</p>
+      
+      <div class="overflow-x-auto mb-6 border border-gray-200 rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200 text-sm">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-4 py-3 text-left font-semibold text-gray-700">Purpose of Processing</th>
+              <th scope="col" class="px-4 py-3 text-left font-semibold text-gray-700">Legal Basis (GDPR)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 bg-white">
+            <tr>
+              <td class="px-4 py-3 text-gray-900">To create your account and manage your profile (via Firebase Authentication)</td>
+              <td class="px-4 py-3 font-medium text-gray-700">Art. 6(1)(b): Contract Fulfillment</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-gray-900">To provide real-time vocal analysis and pitch feedback</td>
+              <td class="px-4 py-3 font-medium text-gray-700">Art. 6(1)(b): Contract Fulfillment</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-gray-900">To process in-app subscriptions and memberships</td>
+              <td class="px-4 py-3 font-medium text-gray-700">Art. 6(1)(b): Contract Fulfillment</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-gray-900">To analyze app performance and optimize user experience (via Firebase Analytics)</td>
+              <td class="px-4 py-3 font-medium text-gray-700">Art. 6(1)(f): Legitimate Interest</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-gray-900">To train and refine our core audio and AI alignment models</td>
+              <td class="px-4 py-3 font-medium text-gray-700">Art. 6(1)(f): Legitimate Interest</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-gray-900">To detect, debug, and resolve app errors (via Firebase Crashlytics)</td>
+              <td class="px-4 py-3 font-medium text-gray-700">Art. 6(1)(f): Legitimate Interest</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-900">2. Automated Decision-Making</h3>
+      <p class="mb-6">
+        While Recite utilizes advanced machine learning and signal processing to assess vocal accuracy and provide feedback, the App <strong>does not</strong> employ any automated decision-making processes that have legal or similarly significant effects on your rights and freedoms.
+      </p>
+
+      <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-900">3. Information Sharing and Disclosure</h3>
+      <p class="mb-6">
+        We do not sell, rent, or trade your personal data or voice recordings to third-party advertisers. We only share information with trusted third-party service providers who are contractually bound to keep your data confidential and secure. We may also disclose your information if required to do so by law, court order, or government regulation.
+      </p>
+
+      <!-- Section III -->
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-gray-900">III. Third-Party Services & Data Infrastructure</h2>
+      <p class="mb-4">
+        We host and operate our backend services through <strong>Google Firebase</strong>, a mobile development platform provided by Google LLC. We do not distribute your personal data across multiple analytics or tracking networks. Firebase processes your data strictly on our behalf under a GDPR-compliant Data Processing Addendum (DPA).
+      </p>
+      <p class="mb-4">The specific Firebase modules integrated into the App include:</p>
+      <ul class="list-disc list-outside ml-6 mb-6 space-y-2">
+        <li><strong>Firebase Authentication:</strong> Securely manages user sign-ins, encrypted password handling, and profile persistence.</li>
+        <li><strong>Firebase Realtime Database / Firestore:</strong> Securely stores your application configurations, profile preferences, and non-audio usage statistics.</li>
+        <li><strong>Firebase Analytics:</strong> Captures anonymous app performance metrics, screen views, and user engagement trends so we can improve the user interface.</li>
+        <li><strong>Firebase Crashlytics:</strong> Captures real-time, non-personally identifiable technical snapshots (such as device model, OS version, and system stack traces) only when the app encounters a bug or crash, allowing us to deploy immediate hotfixes.</li>
       </ul>
-
-      <h2 class="text-2xl font-semibold mt-10 mb-3">3. Data Retention</h2>
-      <p class="mb-6">We retain your information only as long as necessary to fulfill the purposes outlined in this policy or as required by law.</p>
-
-      <h2 class="text-2xl font-semibold mt-10 mb-3">4. Sharing Your Information</h2>
-      <p class="mb-6">
-        We do not sell your personal data. We may share information with trusted third-party services (e.g., analytics, hosting providers) who process it on our behalf, under strict confidentiality agreements.
+      <p class="text-sm text-gray-500 italic mb-6">
+        Note on International Data Transfers: Firebase data may be processed on servers located in the United States. Google ensures that these transfers are protected by standard lawful frameworks, including EU Standard Contractual Clauses (SCCs).
       </p>
 
-      <h2 class="text-2xl font-semibold mt-10 mb-3">5. Security</h2>
-      <p class="mb-6">We use reasonable administrative, technical, and physical safeguards to protect your information from unauthorized access or disclosure.</p>
-
-      <h2 class="text-2xl font-semibold mt-10 mb-3">6. Your Rights</h2>
+      <!-- Section IV -->
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-gray-900">IV. Data Security and Retention</h2>
+      <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-900">1. Security Measures</h3>
       <p class="mb-6">
-        Depending on your location, you may have rights to access, correct, or delete your personal data. You can contact us to exercise these rights.
+        We implement robust, industry-standard technical and organizational security measures to safeguard your data. This includes end-to-end encryption in transit (via HTTPS/TLS), secure access controls, and server firewalls. Because no digital transmission or storage system is 100% secure, we cannot guarantee absolute security, and users assume this inherent risk.
+      </p>
+      <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-900">2. Retention Policy</h3>
+      <p class="mb-6">
+        We retain your personal information, account profiles, and history only as long as necessary to fulfill the operational purposes outlined in this policy or to comply with legal obligations.
       </p>
 
-      <h2 class="text-2xl font-semibold mt-10 mb-3">7. Children’s Privacy</h2>
+      <!-- Section V -->
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-gray-900">V. Your Rights Under the GDPR</h2>
+      <p class="mb-4">If you are a resident of the European Union or European Economic Area, you hold the following statutory rights regarding your personal data:</p>
+      <ul class="list-disc list-outside ml-6 mb-6 space-y-2">
+        <li><strong>The right to be informed</strong> about how your data is collected and used.</li>
+        <li><strong>The right of access</strong> to request a copy of the personal data we hold about you.</li>
+        <li><strong>The right to rectification</strong> to correct inaccurate or incomplete data.</li>
+        <li><strong>The right to erasure</strong> (the “Right to be Forgotten”) to demand the permanent deletion of your account and associated audio data.</li>
+        <li><strong>The right to restrict or object</strong> to the processing of your data.</li>
+        <li><strong>The right to data portability</strong> to receive your data in a structured, machine-readable format.</li>
+      </ul>
       <p class="mb-6">
-        The TryRecite app is not intended for children under 13. We do not knowingly collect personal data from children.
+        To exercise any of these rights, or to request data deletion, please contact our support team at <a href="mailto:info@tryrecite.app">info@tryrecite.app</a>. You also maintain the right to lodge a formal complaint with your local Data Protection Authority.
       </p>
 
-      <h2 class="text-2xl font-semibold mt-10 mb-3">8. Changes to This Policy</h2>
+      <!-- Section VI -->
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-gray-900">VI. Changes to This Privacy Policy</h2>
       <p class="mb-6">
-        We may update this Privacy Policy from time to time. The latest version will always be available at this page.
+        We reserve the right to amend this Privacy Policy at any time. When updates are made, we will revise the "Last Updated" date at the top of this document. For significant material changes, we will provide a prominent notice within the App or send an email notification to your registered address 30 days before the changes take effect. Non-material modifications take effect immediately upon publication.
       </p>
 
-      <h2 class="text-2xl font-semibold mt-10 mb-3">9. Contact Us</h2>
-      <p>
-        If you have any questions or concerns about this Privacy Policy, please contact us at:<br />
-        <a href="mailto:hello@tryrecite.app">info@tryrecite.app</a>
+      <!-- Section VII -->
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-gray-900">VII. Contact Us</h2>
+      <p class="mb-6">
+        If you have any questions, feedback, or compliance inquiries, please reach out to us at:<br />
+        <strong>Email:</strong> <a href="mailto:info@tryrecite.app">info@tryrecite.app</a>
       </p>
     </main>
 
     <footer class="text-center text-gray-400 text-sm py-6 border-t border-gray-200">
-      © <span id="year"></span> TryRecite. All rights reserved.
+      © <span id="year"></span> Recite. All rights reserved.
     </footer>
 
     <script>
